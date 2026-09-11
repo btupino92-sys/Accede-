@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <base target="_top">
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Accede+ | OACGD - MIMP</title>
+
+
+<style>
+
+/* =====================================================
+   CONFIGURACIÓN GENERAL
+===================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f7fb;
+  color: #263238;
+  min-height: 100vh;
+}
+
+
+/* =====================================================
+   CABECERA INSTITUCIONAL
+===================================================== */
+
+.header {
+  background: #ffffff;
+
+  padding: 12px 42px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  min-height: 90px;
+
+  border-bottom: 1px solid #e5e7eb;
+
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+
+/* LOGO OFICIAL DEL MIMP */
+
+.logo-mimp {
+  width: 100%;
+  max-width: 310px;
+  height: auto;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+
+/* NOMBRE DE LA OFICINA */
+
+.nombre-sistema {
+  font-size: 14px;
+
+  color: #31456a;
+
+  font-weight: 600;
+
+  text-align: right;
+
+  line-height: 1.45;
+}
+
+
+/* =====================================================
+   PRESENTACIÓN ACCEDE+
+===================================================== */
+
+.hero {
+  text-align: center;
+
+  padding: 42px 20px 35px;
+
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #f7f9fd 100%
+  );
+}
+
+
+/* LOGO ACCEDE+ */
+
+.logo-principal {
+  width: 100%;
+
+  max-width: 580px;
+
+  height: auto;
+
+  display: block;
+
+  margin: 0 auto 25px auto;
+
+  object-fit: contain;
+}
+
+
+/* DESCRIPCIÓN */
+
+.descripcion {
+  max-width: 760px;
+
+  margin: 0 auto;
+
+  color: #64748b;
+
+  line-height: 1.65;
+
+  font-size: 15px;
+}
+
+
+/* =====================================================
+   TÍTULO DE HERRAMIENTAS
+===================================================== */
+
+.seccion-titulo {
+  max-width: 1180px;
+
+  margin: 32px auto 20px;
+
+  padding: 0 25px;
+}
+
+
+.seccion-titulo h2 {
+  color: #17469e;
+
+  font-size: 24px;
+
+  margin-bottom: 7px;
+}
+
+
+.seccion-titulo p {
+  color: #777;
+
+  font-size: 14px;
+}
+
+
+/* =====================================================
+   CONTENEDOR
+===================================================== */
+
+.contenedor {
+  width: 100%;
+
+  max-width: 1180px;
+
+  margin: auto;
+
+  padding: 10px 25px 60px;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 24px;
+}
+
+
+/* =====================================================
+   TARJETAS
+===================================================== */
+
+.tarjeta {
+  background: white;
+
+  border-radius: 16px;
+
+  padding: 30px 25px 27px;
+
+  text-decoration: none;
+
+  color: inherit;
+
+  min-height: 245px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  position: relative;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 5px 18px rgba(20, 40, 80, 0.08);
+
+  border: 1px solid #edf0f5;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.tarjeta::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  top: 0;
+
+  width: 100%;
+
+  height: 6px;
+
+  background: var(--color);
+}
+
+
+.tarjeta:hover {
+  transform: translateY(-7px);
+
+  box-shadow:
+    0 15px 35px rgba(20, 50, 100, 0.15);
+}
+
+
+/* =====================================================
+   ICONOS
+===================================================== */
+
+.icono {
+  width: 65px;
+
+  height: 65px;
+
+  border-radius: 14px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 33px;
+
+  margin-bottom: 20px;
+
+  background: var(--fondo);
+}
+
+
+/* =====================================================
+   TEXTOS DE LAS TARJETAS
+===================================================== */
+
+.tarjeta h3 {
+  font-size: 19px;
+
+  color: #24375b;
+
+  margin-bottom: 10px;
+
+  line-height: 1.35;
+}
+
+
+.tarjeta p {
+  font-size: 14px;
+
+  color: #68758a;
+
+  line-height: 1.55;
+
+  flex-grow: 1;
+}
+
+
+/* =====================================================
+   BOTÓN
+===================================================== */
+
+.boton {
+  margin-top: 22px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  font-weight: bold;
+
+  font-size: 13px;
+
+  color: var(--color);
+}
+
+
+.flecha {
+  transition: transform 0.2s ease;
+}
+
+
+.tarjeta:hover .flecha {
+  transform: translateX(5px);
+}
+
+
+/* =====================================================
+   COLORES
+===================================================== */
+
+.mapa {
+  --color: #57974b;
+  --fondo: #edf7e9;
+}
+
+
+.solicitud {
+  --color: #641594;
+  --fondo: #f4ebfa;
+}
+
+
+.busqueda {
+  --color: #c49400;
+  --fondo: #fff8d8;
+}
+
+
+.fondo {
+  --color: #ed7800;
+  --fondo: #fff0df;
+}
+
+
+.sigar {
+  --color: #1467a8;
+  --fondo: #e7f3fb;
+}
+
+
+/* =====================================================
+   SIGAR
+===================================================== */
+
+.sigar {
+  grid-column: span 2;
+}
+
+
+.estado {
+  display: inline-block;
+
+  background: #e8f4ff;
+
+  color: #1467a8;
+
+  font-size: 11px;
+
+  font-weight: bold;
+
+  padding: 5px 9px;
+
+  border-radius: 20px;
+
+  margin-bottom: 12px;
+
+  width: max-content;
+}
+
+
+/* =====================================================
+   PIE DE PÁGINA
+===================================================== */
+
+footer {
+  background: #173f87;
+
+  color: white;
+
+  text-align: center;
+
+  padding: 28px 20px;
+}
+
+
+footer .oficina {
+  font-weight: bold;
+
+  font-size: 14px;
+
+  margin-bottom: 7px;
+}
+
+
+footer .ministerio {
+  font-size: 12px;
+
+  opacity: .85;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+  .contenedor {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sigar {
+    grid-column: span 2;
+  }
+
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 650px) {
+
+  .header {
+    padding: 12px 18px;
+
+    min-height: 70px;
+  }
+
+
+  .logo-mimp {
+    max-width: 210px;
+  }
+
+
+  .nombre-sistema {
+    font-size: 10px;
+
+    margin-left: 15px;
+  }
+
+
+  .hero {
+    padding: 30px 15px;
+  }
+
+
+  .logo-principal {
+    max-width: 380px;
+  }
+
+
+  .descripcion {
+    font-size: 14px;
+
+    padding: 0 10px;
+  }
+
+
+  .seccion-titulo {
+    padding: 0 18px;
+  }
+
+
+  .contenedor {
+    grid-template-columns: 1fr;
+
+    padding: 10px 18px 45px;
+  }
+
+
+  .sigar {
+    grid-column: auto;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =================================================
+     CABECERA
+================================================== -->
+
+<header class="header">
+
+
+  <!-- LOGO OFICIAL MIMP -->
+
+  <div>
+
+    <img
+
+      src="https://lh3.googleusercontent.com/d/1wunh_5shFKrchu6P5ALo1W6rVgKAuFcJ"
+
+      alt="Ministerio de la Mujer y Poblaciones Vulnerables"
+
+      class="logo-mimp"
+
+    >
+
+  </div>
+
+
+  <!-- NOMBRE DE LA OFICINA -->
+
+  <div class="nombre-sistema">
+
+    Oficina de Atención a la Ciudadanía<br>
+
+    y Gestión Documental
+
+  </div>
+
+
+</header>
+
+
+
+<!-- =================================================
+     ACCEDE+
+================================================== -->
+
+<section class="hero">
+
+
+  <!-- LOGO ACCEDE+ -->
+
+  <img
+
+    src="https://lh3.googleusercontent.com/d/1VFlDFToBvY7RH2XPo6LjBnGhmhJO4jeC"
+
+    alt="Accede+"
+
+    class="logo-principal"
+
+  >
+
+
+  <p class="descripcion">
+
+    Plataforma de acceso a herramientas digitales para la gestión,
+    consulta, ubicación y transferencia de documentos de la
+    Oficina de Atención a la Ciudadanía y Gestión Documental.
+
+  </p>
+
+
+</section>
+
+
+
+<!-- =================================================
+     HERRAMIENTAS
+================================================== -->
+
+<div class="seccion-titulo">
+
+  <h2>
+    Herramientas de Gestión Documental
+  </h2>
+
+  <p>
+    Seleccione la herramienta a la que desea acceder.
+  </p>
+
+</div>
+
+
+
+<main class="contenedor">
+
+
+<!-- =================================================
+     MAPA TOPOGRÁFICO
+================================================== -->
+
+<a
+
+  class="tarjeta mapa"
+
+  href="https://docs.google.com/spreadsheets/d/1K5X3vjTIYqH7qbVaRVu38_P546B8zqlvQgQGcl2Q4VY/edit?gid=0#gid=0"
+
+  target="_blank"
+
+  rel="noopener noreferrer"
+
+>
+
+  <div class="icono">
+    🗺️
+  </div>
+
+  <h3>
+    Mapa Topográfico - Coordenadas
+  </h3>
+
+  <p>
+    Consulta la ubicación física de la documentación
+    custodiada en el Archivo Central mediante sus
+    coordenadas y ubicación topográfica.
+  </p>
+
+  <div class="boton">
+
+    INGRESAR
+
+    <span class="flecha">→</span>
+
+  </div>
+
+</a>
+
+
+
+<!-- =================================================
+     SOLICITUD DE DOCUMENTO
+================================================== -->
+
+<a
+
+  class="tarjeta solicitud"
+
+  href="https://archivocentral.mimp.gob.pe/s/CKGtsrLLKAG6xjF"
+
+  target="_blank"
+
+  rel="noopener noreferrer"
+
+>
+
+  <div class="icono">
+    📄
+  </div>
+
+  <h3>
+    Solicitud de Documento Automatizado
+  </h3>
+
+  <p>
+    Registra solicitudes de documentos y servicios
+    archivísticos para su atención por el Archivo Central.
+  </p>
+
+  <div class="boton">
+
+    INGRESAR
+
+    <span class="flecha">→</span>
+
+  </div>
+
+</a>
+
+
+
+<!-- =================================================
+     BÚSQUEDA
+================================================== -->
+
+<a
+
+  class="tarjeta busqueda"
+
+  href="https://docs.google.com/spreadsheets/d/13ACnhHwTZYZWpv0VlhvJsaEcLKSeqVkNrf_Ky0j_524/edit?gid=0#gid=0"
+
+  target="_blank"
+
+  rel="noopener noreferrer"
+
+>
+
+  <div class="icono">
+    🔎
+  </div>
+
+  <h3>
+    Búsqueda de Documentos
+  </h3>
+
+  <p>
+    Localiza documentación mediante los diferentes
+    criterios de búsqueda disponibles en la herramienta.
+  </p>
+
+  <div class="boton">
+
+    INGRESAR
+
+    <span class="flecha">→</span>
+
+  </div>
+
+</a>
+
+
+
+<!-- =================================================
+     FONDO DOCUMENTAL
+================================================== -->
+
+<a
+
+  class="tarjeta fondo"
+
+  href="https://docs.google.com/spreadsheets/d/1AHs1fet2MbLAQbDiM3E_Q_hHLQVJepLykrquiYJGXk0/edit?gid=0#gid=0"
+
+  target="_blank"
+
+  rel="noopener noreferrer"
+
+>
+
+  <div class="icono">
+    🗄️
+  </div>
+
+  <h3>
+    Fondo Documental
+  </h3>
+
+  <p>
+    Consulta información correspondiente a los fondos,
+    series y documentación custodiada por el Archivo Central.
+  </p>
+
+  <div class="boton">
+
+    INGRESAR
+
+    <span class="flecha">→</span>
+
+  </div>
+
+</a>
+
+
+
+<!-- =================================================
+     SIGAR
+================================================== -->
+
+<a
+
+  class="tarjeta sigar"
+
+  href="https://sigar.mimp.gob.pe/login"
+
+  target="_blank"
+
+  rel="noopener noreferrer"
+
+>
+
+
+  <div class="estado">
+    SISTEMA INSTITUCIONAL
+  </div>
+
+
+  <div class="icono">
+    🔄
+  </div>
+
+
+  <h3>
+    Sistema Integrado de Gestión de Archivos - SIGAR
+  </h3>
+
+
+  <p>
+    Plataforma para la gestión de transferencias documentales
+    físicas y digitales, que permite registrar, revisar,
+    organizar y gestionar la documentación transferida por las
+    unidades de organización del MIMP.
+  </p>
+
+
+  <div class="boton">
+
+    INGRESAR AL SIGAR
+
+    <span class="flecha">→</span>
+
+  </div>
+
+
+</a>
+
+
+</main>
+
+
+
+<!-- =================================================
+     PIE
+================================================== -->
+
+<footer>
+
+
+  <div class="oficina">
+
+    Oficina de Atención a la Ciudadanía y Gestión Documental - OACGD
+
+  </div>
+
+
+  <div class="ministerio">
+
+    Ministerio de la Mujer y Poblaciones Vulnerables
+
+  </div>
+
+
+</footer>
+
+
+</body>
+
+</html>
